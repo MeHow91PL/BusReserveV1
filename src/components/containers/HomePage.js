@@ -14,7 +14,6 @@ class HomePage extends React.Component{
     }
 }
 
-
 const mapStateToProps = (state) => {
     return {
         prop: state.SampleReducer
