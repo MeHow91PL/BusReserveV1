@@ -1,14 +1,24 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Menu from '../dumb/Menu';
+import {InitializeMenu} from '../../actions/actions';
+import { defaultMenu } from '../../consts/menuItems';
+
 let logo = require('../../assets/logo.svg');
 
 class HomePage extends React.Component{
+    componentWillMount(){
+    }
+
     render(){
+    const { menuItems }  = this.props;
+    console.log("render", menuItems);
+    
         return(
             <div>
                 <img className="logo" src={logo} alt="Logo not found!"/>
                 <h1>Home page</h1>
-                <p> {this.props.prop} </p>
+                <Menu {...defaultMenu}/>
             </div>
         )
     }
@@ -16,8 +26,12 @@ class HomePage extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        prop: state.SampleReducer
     }
 }
 
-export default connect(mapStateToProps)(HomePage);
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
