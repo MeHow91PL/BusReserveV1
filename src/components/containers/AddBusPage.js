@@ -1,18 +1,16 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import Menu from '../dumb/Menu';
-import AddBusForm from '../dumb/AddBusForm';
+import AddBusForm from './AddBusFormContainer';
 import { defaultMenu } from '../../consts/menuItems';
 
-class AddBusPage extends React.Component{
-    submit = (values) => {console.log("## Values:", values )}
-    
-    render(){
-        return(
+class AddBusPage extends React.Component {
+    render() {
+        return (
             <div>
                 <Menu {...defaultMenu} />
-                <AddBusForm onSubmit={this.submit} />
+                <AddBusForm />
             </div>
         )
     }
@@ -20,8 +18,9 @@ class AddBusPage extends React.Component{
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        prop: state.prop
+        prop: state.prop,
     }
 }
 
-export default connect(mapStateToProps)(AddBusPage);
+
+    export default connect(mapStateToProps)(AddBusPage);

@@ -1,11 +1,12 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 
-let AddBusForm = (props) => {
-    const {handleSubmit, reset, pristine} = props
+let AddBusForm = (props,{data}) => {
+    const {handleSubmit, reset, pristine} = props;
+    // console.log(load);
     return(
         <form onSubmit={handleSubmit}>
-            {console.log("props", props, "this.props: " , this.props)}
+            {console.log("props", props, "data: " , data)}
             <table>
                 <tbody>
                 <tr>
@@ -33,6 +34,7 @@ let AddBusForm = (props) => {
                 </tr>
                 <tr>
                     <td><button type="button" disabled={pristine} onClick={reset}>wyczyść</button></td>
+                    <td><button type="button" disabled={!pristine} onClick={()=>alert()}>init</button></td>
                     <td><button type="submit">Dodaj</button></td>
                 </tr>
                 </tbody>
@@ -42,7 +44,10 @@ let AddBusForm = (props) => {
     )
 }
 
+
+
 AddBusForm = reduxForm({
+    initialValues: 'test',
     form: 'addBus'
 })(AddBusForm);
 
