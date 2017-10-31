@@ -7,10 +7,11 @@ import { defaultMenu } from '../../consts/menuItems';
 
 class AddBusPage extends React.Component {
     render() {
+        console.log("AddBusPage props: ",  this.props);
         return (
             <div>
                 <Menu {...defaultMenu} />
-                <AddBusForm />
+                <AddBusForm load2={this.props.load} load={this.props.load} />
             </div>
         )
     }
@@ -18,9 +19,13 @@ class AddBusPage extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        prop: state.prop,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
     }
 }
 
 
-    export default connect(mapStateToProps)(AddBusPage);
+    export default connect(mapStateToProps,mapDispatchToProps)(AddBusPage);

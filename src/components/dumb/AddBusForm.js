@@ -1,12 +1,16 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
+import { connect } from 'react-redux';
+import {InitializeAddBusForm} from '../../actions/actions';
 
-let AddBusForm = (props,{data}) => {
-    const {handleSubmit, reset, pristine} = props;
+
+let AddBusForm = (props) => {
+    const {handleSubmit, reset, pristine, load} = props;
     // console.log(load);
     return(
         <form onSubmit={handleSubmit}>
-            {console.log("props", props, "data: " , data)}
+            {console.log("props", props)}
+            {console.log("laod props", load)}
             <table>
                 <tbody>
                 <tr>
@@ -34,7 +38,7 @@ let AddBusForm = (props,{data}) => {
                 </tr>
                 <tr>
                     <td><button type="button" disabled={pristine} onClick={reset}>wyczyść</button></td>
-                    <td><button type="button" disabled={!pristine} onClick={()=>alert()}>init</button></td>
+                    <td><button type="button" disabled={!pristine} onClick={() => load()}>init</button></td>
                     <td><button type="submit">Dodaj</button></td>
                 </tr>
                 </tbody>
@@ -47,8 +51,20 @@ let AddBusForm = (props,{data}) => {
 
 
 AddBusForm = reduxForm({
-    initialValues: 'test',
     form: 'addBus'
 })(AddBusForm);
 
-export default AddBusForm;
+const mapStateToProps = (state) => {
+    console.log(state);
+    return {
+        initialValues: state.AddBusForm.data
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        load: () => dispatch(InitializeAddBusForm())
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(AddBusForm);
