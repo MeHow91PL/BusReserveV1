@@ -1,13 +1,16 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import {Field, reduxForm} from 'redux-form';
 import { connect } from 'react-redux';
+import {InitializeAddBusForm} from '../../actions/actions';
 
-let AddBusForm = (props, { data }) => {
-    const { handleSubmit, reset, pristine } = props;
+
+let AddBusForm = (props) => {
+    const {handleSubmit, reset, pristine, load} = props;
     // console.log(load);
     return (
         <form onSubmit={handleSubmit}>
-            {console.log("props", props, "data: ", data)}
+            {console.log("props", props)}
+            {console.log("laod props", load)}
             <table>
                 <tbody>
                     <tr>
@@ -22,22 +25,15 @@ let AddBusForm = (props, { data }) => {
                         <td>
                             <label htmlFor="rzedy">Ilość rzędów</label>
                         </td>
-                        <td>
-                            <Field name="rzedy" component="input" type="text" />
-                        </td>
-                    </tr><tr>
-                        <td>
-                            <label htmlFor="liczbaMiejsc">Ogólna liczba miejsc</label>
-                        </td>
-                        <td>
-                            <Field name="liczbaMiejsc" component="input" type="number" min="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><button type="button" disabled={pristine} onClick={reset}>wyczyść</button></td>
-                        <td><button type="button" disabled={!pristine} onClick={() => alert()}>init</button></td>
-                        <td><button type="submit">Dodaj</button></td>
-                    </tr>
+                    <td>
+                        <Field name="liczbaMiejsc" component="input" type="number" min="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><button type="button" disabled={pristine} onClick={reset}>wyczyść</button></td>
+                    <td><button type="button" disabled={!pristine} onClick={() => load()}>init</button></td>
+                    <td><button type="submit">Dodaj</button></td>
+                </tr>
                 </tbody>
             </table>
 
@@ -53,12 +49,17 @@ AddBusForm = reduxForm({
     form: 'addBus'
 })(AddBusForm);
 
-AddBusForm = connect(
-    state => ({
-        initialValues: state.account.data // pull initial values from account reducer
-    }),
-    { load: loadAccount } // bind account loading action creator
-)(AddBusForm)
+const mapStateToProps = (state) => {
+    console.log(state);
+    return {
+        initialValues: state.AddBusForm.data
+    }
+}
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        load: () => dispatch(InitializeAddBusForm())
+    }
+}
 
-export default AddBusForm;
+export default connect(mapStateToProps,mapDispatchToProps)(AddBusForm);
