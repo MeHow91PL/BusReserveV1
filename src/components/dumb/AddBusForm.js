@@ -3,14 +3,49 @@ import {Field, reduxForm} from 'redux-form';
 import { connect } from 'react-redux';
 import {InitializeAddBusForm} from '../../actions/actions';
 
+//Przykładowe dane symulujące przekazanie inicjalizujących danych z serwera
+const data = {
+    nazwa: "Nowy bus",
+    rzedy: "10",
+    liczbaMiejsc: 20
+}
+
+//Walidacja synchroniczna
+const validate = values =>
+{
+    let errors = {};
+
+    if (!values.nazwa) {
+        errors.nazwa = "Nazwa nie może być pusta!";
+    }
+
+    return errors;
+}
+
+const renderField = ({
+    input,
+    label,
+    type,
+    meta: { touched, error, warning }
+  }) => (
+    <div>
+      <label>{label}</label>
+      <div>
+        <input {...input} placeholder={label} type={type} />
+        {touched &&
+          ((error && <span>{error}</span>) ||
+            (warning && <span>{warning}</span>))}
+      </div>
+    </div>
+  )
+
+  
 
 let AddBusForm = (props) => {
     const {handleSubmit, reset, pristine, load} = props;
-    // console.log(load);
     return(
         <form onSubmit={handleSubmit}>
-            {console.log("props", props)}
-            {console.log("laod props", load)}
+            {console.log("## Add bus form: props", props)}
             <table>
                 <tbody>
                 <tr>
@@ -18,7 +53,7 @@ let AddBusForm = (props) => {
                         <label htmlFor="nazwa">Nazwa</label>
                         </td>
                     <td>
-                        <Field name="nazwa" component="input" type="text" />
+                        <Field name="nazwa" component={renderField} type="text" />
                     </td>
                 </tr>
                 <tr>
@@ -38,7 +73,8 @@ let AddBusForm = (props) => {
                 </tr>
                 <tr>
                     <td><button type="button" disabled={pristine} onClick={reset}>wyczyść</button></td>
-                    <td><button type="button" disabled={!pristine} onClick={() => load()}>init</button></td>
+                    {console.log("++ AddBusFrom: render: data", data)}
+                    <td><button type="button" disabled={!pristine} onClick={() => load(data)}>init</button></td>
                     <td><button type="submit">Dodaj</button></td>
                 </tr>
                 </tbody>
@@ -51,19 +87,21 @@ let AddBusForm = (props) => {
 
 
 AddBusForm = reduxForm({
-    form: 'addBus'
+    // enableReinitialize :true,
+    form: 'addBus',
+    validate
 })(AddBusForm);
 
 const mapStateToProps = (state) => {
-    console.log(state);
+    console.log("MapStateToProps: state:", state);
     return {
-        initialValues: state.AddBusForm.data
+        initialValues: state.addBus.data
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        load: () => dispatch(InitializeAddBusForm())
+        load: (data) => dispatch(InitializeAddBusForm(data))
     }
 }
 

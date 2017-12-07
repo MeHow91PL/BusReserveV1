@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
-import AddBusForm from './addBusForm';
+import addBus from './addBusForm';
 import { reducer as formReducer } from 'redux-form';
 
 const rootReducer = combineReducers(
     {
-        AddBusForm,
+        addBus,
         form: formReducer
     }
 );

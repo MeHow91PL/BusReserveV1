@@ -7,7 +7,7 @@ export function InitializeMenu(menuItems) {
 
 export const InitializeAddBusForm = (data) => {
     console.log("Action fired!!");
-    console.log('data', data);
+    console.log('-- Action: InitializeAddBusForm: data', data);
     return ({
         type: 'INIT_ADD_BUS_FORM',
         payload: data
