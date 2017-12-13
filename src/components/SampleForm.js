@@ -38,7 +38,9 @@ const SimpleSampleForm = props =>{
                     </label>
                 </div>  
             </div>
-            
+            <div>
+                <button type></button>
+            </div>
         </form> 
     )
 }
