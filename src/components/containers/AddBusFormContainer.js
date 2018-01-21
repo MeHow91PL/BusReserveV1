@@ -16,8 +16,9 @@ class AddBusFormContainer extends React.Component {
 
 
 const mapStateToProps = (state, ownProps) => {
+    console.log("State", state.AddBusForm.data)
     return {
-        initialValues: state.addBusForm
+        initialValues: state.AddBusForm.data
     }
 }
 

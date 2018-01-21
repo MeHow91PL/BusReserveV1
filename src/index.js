@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom'; 
-import {createStore, applyMiddleware} from 'redux';
+import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import RootReducer from './reducers/rootReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';

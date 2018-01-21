@@ -1,7 +1,7 @@
 import React from 'react';
-import {Field, reduxForm} from 'redux-form';
-import { connect } from 'react-redux';
-import {InitializeAddBusForm} from '../../actions/actions';
+import {Field} from 'redux-form';
+// import { connect } from 'react-redux';
+// import {InitializeAddBusForm} from '../../actions/actions';
 
 
 let AddBusForm = (props) => {
@@ -45,21 +45,5 @@ let AddBusForm = (props) => {
 
 // You have to connect() to any reducers that you wish to connect to yourself
 
-AddBusForm = reduxForm({
-    form: 'addBus'
-})(AddBusForm);
 
-const mapStateToProps = (state) => {
-    console.log(state);
-    return {
-        initialValues: state.AddBusForm.data
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        load: () => dispatch(InitializeAddBusForm())
-    }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(AddBusForm);
+export default AddBusForm;

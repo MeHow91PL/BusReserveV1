@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Menu from '../dumb/Menu';
-import {InitializeMenu} from '../../actions/actions';
+// import {InitializeMenu} from '../../actions/actions';
 import { defaultMenu } from '../../consts/menuItems';
 
-let logo = require('../../assets/logo.svg');
+let logo = require('../../assets/zab.svg');
 
 class HomePage extends React.Component{
     componentWillMount(){

@@ -13,3 +13,18 @@ export const InitializeAddBusForm = (data) => {
         payload: data
     })
 }
+
+export const SetRozpoznanie = (rozp) => {
+    console.log(`Zmiana rozpoznania na ${rozp.nazwa}`)
+    return ({
+        type: 'DIAG_SET_ROZP',
+        payload: rozp
+    })
+}
+export const SetNewRozpoznanie = (rozp) => {
+    console.log("Ustawiono rozpoznanie:" , rozp.nazwa);
+    return ({
+        type: 'DIAG_SET_ROZP_ZEBA',
+        payload: rozp
+    })
+}

@@ -8,6 +8,47 @@ a{
   }
 }
 
+path:hover{
+  fill: rgba(0, 0, 0, 0.1);
+  transition: 200ms;
+  cursor: pointer;
+}
+
+.rozpoznania{
+display: flex;
+
+  .rozp-kafelek{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    
+    &:hover{
+       filter: brightness(2);
+       -webkit-filter: brightness(2);
+       -ms-filter: brightness(2);
+       cursor: pointer;
+       color: #b9b9b9;
+    }
+  }
+}
+    .prochnica{
+      background: #ff1c1c;
+    }
+
+    .kamien{
+      background: #9e9e9e;
+    }
+
+
+.zuchwa{
+  background: #b0a4c6;
+  display: flex;
+  width: 100%;
+}
+
 .App {
   text-align: center;
   .logo {
