@@ -1,39 +1,37 @@
 import React from 'react';
 import Zab from './tooth';
-import {connect} from 'react-redux';
-import {SetNewRozpoznanie} from './../../actions/actions';
 
-const Mouth = ({AktywneRozpoznanie}) => {
+
+
+const Mouth = ({ AktywneRozpoznanie, Zeby, AddRozpoznanie }) => {
     return (
         <div>
-            {/* <div className="szczeka">
-                <Zab />
-                <Zab />
-                <Zab />
-                <Zab />
-            </div> */}
-            <div className="zuchwa">
-                <Zab  />
-                <Zab />
-                <Zab />
-                <Zab />
+            <div className="szczeka">
+                <div className="cw1">
+                    {Zeby.map(zab => (
+                        zab.Ćwiartka === 1 ? <Zab {...zab} key={`${zab.Ćwiartka}${zab.Numer}`} Rozp={AktywneRozpoznanie} onClick={AddRozpoznanie} /> : ""
+                    ))}
+                </div>
+                <div className="cw2">
+                {Zeby.map(zab => (
+                        zab.Ćwiartka === 2 ? <Zab {...zab} key={`${zab.Ćwiartka}${zab.Numer}`} Rozp={AktywneRozpoznanie} onClick={AddRozpoznanie} /> : ""
+                    ))}
+                </div>
             </div>
+            <div className="zuchwa">
+                <div className="cw3">
+                    {Zeby.map(zab => (
+                        zab.Ćwiartka === 3 ? <Zab {...zab} key={`${zab.Ćwiartka}${zab.Numer}`} Rozp={AktywneRozpoznanie} onClick={AddRozpoznanie} /> : ""
+                    ))}
+                </div>
+                <div className="cw4">
+                {Zeby.map(zab => (
+                        zab.Ćwiartka === 4 ? <Zab {...zab} key={`${zab.Ćwiartka}${zab.Numer}`} Rozp={AktywneRozpoznanie} onClick={AddRozpoznanie} /> : ""
+                    ))}
+                </div>
+            </div>        
         </div>
     );
 }
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        AktywneRozpoznanie: state.DiagramReducer
-    }
-}
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-    return {
-        onToothCilck: (rozp) => {
-            dispatch(SetNewRozpoznanie(rozp))
-        }
-    }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(Mouth);
+export default Mouth;

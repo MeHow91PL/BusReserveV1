@@ -1,12 +1,12 @@
 import React from 'react';
-import Szczena from './mouth';
+import CreateMouth from '../containers/CreateMouth';
 import Rozpoznania from './Rozpoznania';
 
 const DiagramPage = props => {
     return (
         <div>
             <Rozpoznania />
-            <Szczena />
+            <CreateMouth />
         </div>
 
     );

@@ -21,10 +21,10 @@ export const SetRozpoznanie = (rozp) => {
         payload: rozp
     })
 }
-export const SetNewRozpoznanie = (rozp) => {
-    console.log("Ustawiono rozpoznanie:" , rozp.nazwa);
+export const AddRozpoznanie = (cw, nr, pow,rozp) => {
+    console.log("Dodano rozpoznanie:" , cw, nr, pow,rozp);
     return ({
-        type: 'DIAG_SET_ROZP_ZEBA',
-        payload: rozp
+        type: 'DIAG_ADD_ROZP',
+        cw, nr, pow,rozp
     })
 }

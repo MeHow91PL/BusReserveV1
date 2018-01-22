@@ -5,14 +5,12 @@ import { SetRozpoznanie } from '../../actions/actions';
 class Rozpoznania extends React.Component {
     render() {
         const  {AktywneRozpoznanie, RozpoznanieChanged} = this.props;
-        console.log("props", this.props);
-        console.log("AktywneRozpoznanie", AktywneRozpoznanie);
         return (
             <div className="rozpoznania">
                 <div className="rozp-kafelek prochnica"
-                 onClick={()=>RozpoznanieChanged({nazwa: 'Próchnica',fill: '#ff1c1c'})}>P</div>
+                 onClick={()=>RozpoznanieChanged({nazwa: 'Próchnica',ClassName: 'prochnica'})}>P</div>
                  <div className="rozp-kafelek kamien"
-                 onClick={()=>RozpoznanieChanged({nazwa: 'Kamień',fill: '#9e9e9e'})}>K</div>
+                 onClick={()=>RozpoznanieChanged({nazwa: 'Kamień',ClassName: 'kamien'})}>K</div>
                  <div>
                      Wybrane rozpoznanie:
                      {AktywneRozpoznanie.Nazwa}
@@ -24,12 +22,11 @@ class Rozpoznania extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        AktywneRozpoznanie: state.DiagramReducer
+        AktywneRozpoznanie: state.Diagram.AktywneRozpoznanie
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    console.log(SetRozpoznanie);
     return {
         RozpoznanieChanged: (rozp) => {
             dispatch(SetRozpoznanie(rozp))

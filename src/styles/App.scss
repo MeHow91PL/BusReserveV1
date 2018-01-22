@@ -1,3 +1,7 @@
+@mixin pointer {
+  cursor: pointer;
+}
+
 a{
   text-decoration: none;
   color: initial;
@@ -11,7 +15,83 @@ a{
 path:hover{
   fill: rgba(0, 0, 0, 0.1);
   transition: 200ms;
-  cursor: pointer;
+  @include pointer;
+}
+
+.zab{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px 2px;
+}
+
+.zab-elem{
+  background: white;
+  border: 1px solid #4d4d4d;
+  transition: 100ms;
+  margin: 2px;
+
+  &:hover{
+    cursor: pointer;
+    background:rgba(255,255,255,0.8);
+  }
+
+  &:active{
+    background:rgba(255,255,255,0.5);
+  }
+}
+
+.korona{
+  @extend .zab-elem;
+  width: 40px;
+  height: 40px;
+}
+
+.korzen{
+  @extend .zab-elem;
+  width: 30px;
+  height: 40px;
+}
+
+
+.cwiartka{
+    display: flex;
+}
+  .cw1{
+    @extend .cwiartka;
+    background: #bfc0f7;
+    flex-direction: row-reverse;
+  }
+    .cw2{
+    @extend .cwiartka;
+    background: #f47b7b;
+  }
+  .cw3{
+    @extend .cwiartka;
+    background: #dbf8be;
+    flex-direction: row-reverse;
+  }
+    .cw4{
+    @extend .cwiartka;
+    background: #da96ba;
+  }
+
+.szczeka{
+ background: #a7c2ad;
+  display: flex;
+  width: 100%;
+  user-select: none;
+   
+    .zab{
+    flex-direction: column-reverse;
+  }
+}
+
+.zuchwa{
+  background: #b0a4c6;
+  display: flex;
+  width: 100%;
+  user-select: none;
 }
 
 .rozpoznania{
@@ -26,11 +106,11 @@ display: flex;
     user-select: none;
     
     &:hover{
-       filter: brightness(2);
-       -webkit-filter: brightness(2);
-       -ms-filter: brightness(2);
        cursor: pointer;
        color: #b9b9b9;
+       filter: brightness(1.2);
+       -ms-filter: brightness(1.2);
+       -webkit-filter: brightness(1.2);
     }
   }
 }
@@ -43,11 +123,7 @@ display: flex;
     }
 
 
-.zuchwa{
-  background: #b0a4c6;
-  display: flex;
-  width: 100%;
-}
+
 
 .App {
   text-align: center;
