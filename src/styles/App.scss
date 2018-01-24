@@ -33,11 +33,11 @@ path:hover{
 
   &:hover{
     cursor: pointer;
-    background:rgba(255,255,255,0.8);
+    transform: translate(0px,-3px)
   }
 
   &:active{
-    background:rgba(255,255,255,0.5);
+    transform: translate(0px,2px)
   }
 }
 
@@ -55,29 +55,49 @@ path:hover{
 
 
 .cwiartka{
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #4d4d4d;
+  
+
+    .zeby{
+      display: flex
+    }
+
+    .kod{
+      padding: 5px;
+      font-weight: bold;
+      opacity: 0.2;
+
+      &:hover{
+        cursor: pointer;
+        opacity: 0.7
+      }
+    }
+
+    &:nth-child(1){
+      .zeby{
+        flex-direction: row-reverse;
+      }
+    }
 }
   .cw1{
     @extend .cwiartka;
-    background: #bfc0f7;
-    flex-direction: row-reverse;
   }
     .cw2{
     @extend .cwiartka;
-    background: #f47b7b;
   }
   .cw3{
     @extend .cwiartka;
-    background: #dbf8be;
-    flex-direction: row-reverse;
+    flex-direction: column-reverse;
   }
     .cw4{
     @extend .cwiartka;
-    background: #da96ba;
+    flex-direction: column-reverse;
   }
 
 .szczeka{
- background: #a7c2ad;
   display: flex;
   width: 100%;
   user-select: none;
@@ -88,7 +108,6 @@ path:hover{
 }
 
 .zuchwa{
-  background: #b0a4c6;
   display: flex;
   width: 100%;
   user-select: none;
