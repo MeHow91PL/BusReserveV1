@@ -21,10 +21,18 @@ export const SetRozpoznanie = (rozp) => {
         payload: rozp
     })
 }
-export const AddRozpoznanie = (cw, nr, pow,rozp) => {
+export const AddRozpoznanieZab = (cw, nr, pow,rozp) => {
     console.log("Dodano rozpoznanie:" , cw, nr, pow,rozp);
     return ({
-        type: 'DIAG_ADD_ROZP',
+        type: 'DIAG_ADD_ROZP_ZAB',
         cw, nr, pow,rozp
+    })
+}
+
+export const AddRozpoznanieCw = (cw,rozp) => {
+    console.log("Dodano rozpoznanie:" , cw,rozp);
+    return ({
+        type: 'DIAG_ADD_ROZP_CW',
+        cw,rozp
     })
 }

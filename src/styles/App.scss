@@ -1,3 +1,7 @@
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 @mixin pointer {
   cursor: pointer;
 }
@@ -33,11 +37,11 @@ path:hover{
 
   &:hover{
     cursor: pointer;
-    transform: translate(0px,-3px)
+    transform: translate(0px,-1px)
   }
 
   &:active{
-    transform: translate(0px,2px)
+    transform: translate(0px,1px)
   }
 }
 
@@ -58,8 +62,8 @@ path:hover{
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #4d4d4d;
-  
+  background: #ffffff;
+  padding: 5px 15px;
 
     .zeby{
       display: flex
@@ -69,30 +73,43 @@ path:hover{
       padding: 5px;
       font-weight: bold;
       opacity: 0.2;
+      transition: 150ms;
 
       &:hover{
         cursor: pointer;
-        opacity: 0.7
+        opacity: 0.7;
+        transform: scale(1.5);
+      }
+      
+      &:active{
+        transform: scale(1.3);
       }
     }
 
-    &:nth-child(1){
-      .zeby{
-        flex-direction: row-reverse;
-      }
-    }
+     
 }
-  .cw1{
+  .cw10{
     @extend .cwiartka;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+
+     .zeby{
+        flex-direction: row-reverse;
+    }
   }
-    .cw2{
+    .cw20{
     @extend .cwiartka;
+    border-bottom: 1px solid black;
   }
-  .cw3{
+  .cw30{
     @extend .cwiartka;
     flex-direction: column-reverse;
+    border-right: 1px solid black;
+     .zeby{
+        flex-direction: row-reverse;
+    }
   }
-    .cw4{
+    .cw40{
     @extend .cwiartka;
     flex-direction: column-reverse;
   }

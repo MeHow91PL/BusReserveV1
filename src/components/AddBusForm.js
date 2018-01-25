@@ -12,11 +12,7 @@ const min0 = minVal(0);
 
 const AddBusForm = props =>
 {
-    const {handleSubmit, pristine} = props;
-    const TempSub =(e) => {
-        e.preventDefault();
-    }
-    
+    const {handleSubmit} = props;
     return(
         <div>
             <form onSubmit={handleSubmit}>

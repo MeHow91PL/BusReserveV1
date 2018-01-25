@@ -45,7 +45,7 @@ const renderField = ({
     )
 
 const FieldValidationFieldForm = props => {
-    const { pristine, submitting, valid, handleSubmit } = props;
+    const { pristine, handleSubmit } = props;
 
     return (
         <form onSubmit={handleSubmit}>

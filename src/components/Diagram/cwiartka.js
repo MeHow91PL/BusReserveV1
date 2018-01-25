@@ -2,23 +2,26 @@ import React from 'react'
 import Zab from './tooth'
 
 
-function Cwiartka({NumerCwiartki,Zeby,AktywneRozpoznanie,AddRozpoznanie}) {
+function Cwiartka(
+    {Umiejscowienie, Numer, Zeby, AktywneRozpoznanie, AddRozpoznanieCw,AddRozpoznanieZab }) 
+    {
     return (
         <div>
-        <div className="cw1">
-        <div className="zeby">
-            {Zeby.map(zab => (zab.Ćwiartka === NumerCwiartki
-                ? <Zab
-                        {...zab}
-                        key={`${zab.Ćwiartka}${zab.Numer}`}
-                        Rozp={AktywneRozpoznanie}
-                        onClick={AddRozpoznanie}/>
-                : ""))}
-        </div>
-        <div className="kod">
-            01
-        </div>
-    </div>
+            <div className={`cw${Numer}`}>
+                <div className="zeby">
+                    {Zeby.map(zab => (zab.Cwiartka === Numer
+                        ? <Zab
+                            {...zab}
+                            key={`${zab.Cwiartka}${zab.Numer}`}
+                            Rozp={AktywneRozpoznanie}
+                            onClick={AddRozpoznanieZab} />
+                        : ""
+                        ))}
+                </div>
+                <div className="kod" onClick={() => AddRozpoznanieCw(Numer,AktywneRozpoznanie)}>
+                    {Numer}
+                </div>
+            </div>
         </div>
     )
 }

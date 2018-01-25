@@ -5,7 +5,7 @@ import {renderField} from '../consts/Fields';
 
 const SubmitValidationForm = props =>
 {
-    const {error, handleSubmit, pristine, submitting} = props;
+    const {handleSubmit} = props;
 
     return(
         <div>
