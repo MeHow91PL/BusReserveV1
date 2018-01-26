@@ -3,18 +3,18 @@ import Cwiartka from '../containers/Cwiartka';
 
 const Mouth = ({ AktywneRozpoznanie, Cwiartki }) => {
     return (
-        <div>
-        
-        <div className="szczeka">
-            {Cwiartki.map(cw => (
-                 cw.Umiejscowienie === '01' ? <Cwiartka key={cw.Numer} {...cw} /> : ''
-            ))}
-        </div>
-        <div className="zuchwa">
-        {Cwiartki.map(cw => (
-                 cw.Umiejscowienie === '02' ? <Cwiartka key={cw.Numer} {...cw} /> : ''
-            ))}
-        </div>
+        <div className="diagram">
+
+            <div className="szczeka">
+                {Cwiartki.map(cw => (
+                    cw.Umiejscowienie === '01' ? <Cwiartka key={cw.Numer} {...cw} /> : ''
+                ))}
+            </div>
+            <div className="zuchwa">
+                {Cwiartki.map(cw => (
+                    cw.Umiejscowienie === '02' ? <Cwiartka key={cw.Numer} {...cw} /> : ''
+                ))}
+            </div>
         </div>
     )
 }
