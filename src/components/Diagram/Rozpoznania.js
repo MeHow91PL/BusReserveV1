@@ -28,7 +28,7 @@ class Rozpoznania extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        AktywneRozpoznanie: state.Diagram.AktywneRozpoznanie
+        AktywneRozpoznanie: state.Diagram.present.AktywneRozpoznanie
     }
 }
 

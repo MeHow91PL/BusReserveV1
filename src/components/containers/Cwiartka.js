@@ -4,8 +4,8 @@ import { AddRozpoznanieZab, AddRozpoznanieCw } from '../../actions/actions'
 
 const mapStateToProps = (state, ownProps) =>
  ({
-    AktywneRozpoznanie: state.Diagram.AktywneRozpoznanie,
-    Zeby: state.Diagram.Zeby,
+    AktywneRozpoznanie: state.Diagram.present.AktywneRozpoznanie,
+    Zeby: state.Diagram.present.Zeby,
 })
 
 const mapDispatchToProps = dispatch => {

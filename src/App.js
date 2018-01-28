@@ -10,12 +10,12 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <Route exact path='/' component={HomePage} />
-          <Route path='/AddBus' component={AddBusPage} />
-          <Route path='/Diagram' component={DiagramPage} />
-          <Route path='/FormVal' component={WalidacjaFormularzy} />
-        </div>
+          <div>
+            <Route exact path='/' component={HomePage} />
+            <Route path='/AddBus' component={AddBusPage} />
+            <Route path='/Diagram' component={DiagramPage} />
+            <Route path='/FormVal' component={WalidacjaFormularzy} />
+          </div>
       </Router>
     );
   }

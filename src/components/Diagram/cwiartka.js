@@ -1,7 +1,6 @@
 import React from 'react'
 import Zab from './tooth'
 
-
 function Cwiartka(
     {Umiejscowienie, Numer, Zeby, AktywneRozpoznanie, AddRozpoznanieCw,AddRozpoznanieZab }) 
     {

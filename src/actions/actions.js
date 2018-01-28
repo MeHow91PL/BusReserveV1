@@ -36,3 +36,11 @@ export const AddRozpoznanieCw = (cw,rozp) => {
         cw,rozp
     })
 }
+
+export const HistoriaZmiannAdd = (oldState,newState) => {
+    console.log("Dodano zmianę:" , oldState,newState);
+    return ({
+        type: 'STORY_ADD_CHANGE',
+        oldState,newState
+    })
+}

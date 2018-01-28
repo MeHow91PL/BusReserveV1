@@ -1,3 +1,5 @@
+import undoable, { includeAction ,excludeAction } from 'redux-undo'
+
 const Diagram = {
     AktywneRozpoznanie: "",
     Zeby: [
@@ -39,11 +41,13 @@ const Diagram = {
         { Numer: 20, Umiejscowienie: '01' },
         { Numer: 30, Umiejscowienie: '02' },
         { Numer: 40, Umiejscowienie: '02' }
-    ]
+    ],
+    ListaZmian: []
 }
 
 
-export default (state = Diagram, action) => {
+
+const diagramReucer = (state = Diagram, action) => {
     switch (action.type) {
         case 'DIAG_SET_ROZP':
             return {
@@ -58,6 +62,7 @@ export default (state = Diagram, action) => {
                             { ...zab, ...action.rozp } :
                             zab
                     ))
+                    
             }
         case 'DIAG_ADD_ROZP_CW':
             return {
@@ -71,3 +76,10 @@ export default (state = Diagram, action) => {
         default: return state;
     }
 }
+
+const undoableTodos = undoable(diagramReucer,{ 
+    filter: excludeAction(['DIAG_SET_ROZP'])
+
+})
+  
+export default undoableTodos;
