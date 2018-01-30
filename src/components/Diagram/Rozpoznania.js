@@ -9,7 +9,8 @@ class Rozpoznania extends React.Component {
         const { AktywneRozpoznanie, RozpoznanieChanged } = this.props;
         return (
             <div>
-                <div className="rozpoznania">
+                <div className="rozpoznania" id="test"
+                >
                     <div className="rozp-kafelek brak"
                         onClick={() => RozpoznanieChanged(Rozp.Brak)}>B</div>
                     <div className="rozp-kafelek prochnica"

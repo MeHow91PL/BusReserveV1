@@ -41,6 +41,18 @@ div{
   }
 }
 
+.rozpo{
+  width: 20px;
+  height: 20px;
+  background: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+  display: none;
+}
+
 .center-flex{
   display: flex;
   justify-content: center;
@@ -72,18 +84,25 @@ path:hover{
 
 .zab-elem{
   background: white;
-  border: 1px solid #818181;
+  border: 1px solid #161616;
   transition: 100ms;
   margin: 2px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: small;
+  color: #747474;
 
   &:hover{
     cursor: pointer;
-    @include boxShadow($down:0 ,$blur:3px, $opa:1);
-    border: 1px solid white;
+    transform: scale(1.05);
+    background: rgba(0,0,150,0.1);
   }
 
   &:active{
      @include boxShadow($inset:true);
+    transform: scale(0.99)
   }
 }
 
@@ -128,11 +147,11 @@ path:hover{
       &:hover{
         cursor: pointer;
         opacity: 0.4;
-        transform: scale(1.5);
+        transform: scale(1.3);
       }
       
       &:active{
-        transform: scale(1.3);
+        transform: scale(1.1);
       }
     }
 
@@ -154,14 +173,14 @@ path:hover{
   .cw30{
     @extend .cwiartka;
     flex-direction: column-reverse;
-    border-right: 1px solid rgba(0,0,0,0.1);
-     .zeby{
-        flex-direction: row-reverse;
-    }
   }
     .cw40{
     @extend .cwiartka;
     flex-direction: column-reverse;
+    border-right: 1px solid rgba(0,0,0,0.1);
+     .zeby{
+        flex-direction: row-reverse;
+    }
   }
 
 .szczeka{
@@ -176,6 +195,7 @@ path:hover{
 
 .zuchwa{
   @extend .center-flex;
+  flex-direction: row-reverse;
   width: 100%;
   user-select: none;
 }

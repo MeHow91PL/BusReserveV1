@@ -1,5 +1,9 @@
 import React from 'react'
-import Zab from './tooth'
+import Zab from './Zab'
+
+import { menuProvider } from 'react-contexify'
+
+const ZabCtx = menuProvider('zabConMenu')(Zab)
 
 function Cwiartka(
     {Umiejscowienie, Numer, Zeby, AktywneRozpoznanie, AddRozpoznanieCw,AddRozpoznanieZab }) 
@@ -9,7 +13,7 @@ function Cwiartka(
             <div className={`cw${Numer}`}>
                 <div className="zeby">
                     {Zeby.map(zab => (zab.Cwiartka === Numer
-                        ? <Zab
+                        ? <ZabCtx
                             {...zab}
                             key={`${zab.Cwiartka}${zab.Numer}`}
                             Rozp={AktywneRozpoznanie}

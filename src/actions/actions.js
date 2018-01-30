@@ -37,10 +37,10 @@ export const AddRozpoznanieCw = (cw,rozp) => {
     })
 }
 
-export const HistoriaZmiannAdd = (oldState,newState) => {
+export const AnulujRozp = (oldState,newState) => {
     console.log("Dodano zmianę:" , oldState,newState);
     return ({
-        type: 'STORY_ADD_CHANGE',
+        type: 'DIAG_CANCEL_ROZP',
         oldState,newState
     })
 }

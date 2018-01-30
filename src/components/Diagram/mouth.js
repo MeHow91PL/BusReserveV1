@@ -1,9 +1,38 @@
 import React from 'react';
 import Cwiartka from '../containers/Cwiartka';
+import Rozp from '../../consts/rozpoznania';
+
 
 const Mouth = ({ AktywneRozpoznanie, Cwiartki }) => {
+    const test = (e) => {
+        let roz = document.getElementById('rozpo');
+        roz.style.left = e.pageX + 11 + 'px';
+        roz.style.top = e.pageY + 15 + 'px';
+    }
+    const hide = (e) => {
+        console.log(AktywneRozpoznanie !== Rozp.Brak);
+        console.log(AktywneRozpoznanie );
+        console.log( Rozp.Brak);
+        
+        if (AktywneRozpoznanie !== Rozp.Brak) {
+            let roz = document.getElementById('rozpo');
+            roz.style.display = 'none';
+        }
+    }
+    const show = (e) => {
+        if (AktywneRozpoznanie !== Rozp.Brak) {
+            let roz = document.getElementById('rozpo');
+            roz.style.background = AktywneRozpoznanie.Color;
+            roz.style.display = 'block';
+        }
+    }
+
     return (
-        <div className="diagram">
+        <div className="diagram"
+            onMouseMove={test}
+            onMouseLeave={hide}
+            onMouseEnter={show}
+        >
 
             <div className="szczeka">
                 {Cwiartki.map(cw => (
@@ -15,6 +44,8 @@ const Mouth = ({ AktywneRozpoznanie, Cwiartki }) => {
                     cw.Umiejscowienie === '02' ? <Cwiartka key={cw.Numer} {...cw} /> : ''
                 ))}
             </div>
+            <div className="rozpo" id="rozpo"></div>
+
         </div>
     )
 }

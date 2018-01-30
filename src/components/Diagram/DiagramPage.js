@@ -4,10 +4,8 @@ import Rozpoznania from './Rozpoznania';
 import { connect } from 'react-redux';
 import { ActionCreators } from 'redux-undo';
 import { HotKeys } from 'react-hotkeys';
-import { menuProvider } from 'react-contexify';
 import { DiagramContextMenu, ZabContextMenu } from '../containers/ContextMenu';
 
-const Diagram = menuProvider('menu_id')(CreateMouth);
 
 
 const keyMap = {
@@ -27,11 +25,13 @@ const DiagramPage = ({ undoRozp, redoRozp, canUndo, canRedo }) => {
         'redoRozp': redo
     };
 
+    
     return (
-        <div>
+        <div
+        >
             <HotKeys keyMap={keyMap} handlers={handlers}>
                 <Rozpoznania />
-                <Diagram />
+                <CreateMouth />
                 <DiagramContextMenu />
                 <ZabContextMenu />
             </HotKeys>
