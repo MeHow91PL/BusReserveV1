@@ -10,10 +10,6 @@ const Mouth = ({ AktywneRozpoznanie, Cwiartki }) => {
         roz.style.top = e.pageY + 15 + 'px';
     }
     const hide = (e) => {
-        console.log(AktywneRozpoznanie !== Rozp.Brak);
-        console.log(AktywneRozpoznanie );
-        console.log( Rozp.Brak);
-        
         if (AktywneRozpoznanie !== Rozp.Brak) {
             let roz = document.getElementById('rozpo');
             roz.style.display = 'none';

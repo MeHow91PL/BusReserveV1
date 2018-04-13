@@ -44,3 +44,15 @@ export const AnulujRozp = (oldState,newState) => {
         oldState,newState
     })
 }
+
+export const pokazOpcje = () => {
+    return {
+        type: 'POKA_OPCJE'
+     }
+}
+
+export const ukryjOpcje = () => {
+    return {
+        type: 'UKRYJ_OPCJE'
+    }
+}

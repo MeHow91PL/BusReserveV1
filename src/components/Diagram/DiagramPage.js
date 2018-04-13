@@ -1,22 +1,19 @@
 import React from 'react';
 import CreateMouth from '../containers/CreateMouth';
 import Rozpoznania from './Rozpoznania';
-import { connect } from 'react-redux';
-import { ActionCreators } from 'redux-undo';
-import { HotKeys } from 'react-hotkeys';
-import { DiagramContextMenu, ZabContextMenu } from '../containers/ContextMenu';
-
-
+import OpcjeBtn from './opcjeBtn';
+import OpcjeDialog from './opcjeDialog';
+import {connect} from 'react-redux';
+import {ActionCreators} from 'redux-undo';
+import {HotKeys} from 'react-hotkeys';
+import {DiagramContextMenu, ZabContextMenu} from '../containers/ContextMenu';
 
 const keyMap = {
     'cofnijRozp': 'ctrl+z',
     'redoRozp': 'ctrl+y'
 };
 
-
-
-
-const DiagramPage = ({ undoRozp, redoRozp, canUndo, canRedo }) => {
+const DiagramPage = ({undoRozp, redoRozp, canUndo, canRedo}) => {
     const undo = () => canUndo && undoRozp();
     const redo = () => canRedo && redoRozp();
 
@@ -25,20 +22,20 @@ const DiagramPage = ({ undoRozp, redoRozp, canUndo, canRedo }) => {
         'redoRozp': redo
     };
 
-    
     return (
-        <div
-        >
+        <div>
             <HotKeys keyMap={keyMap} handlers={handlers}>
-                <Rozpoznania />
-                <CreateMouth />
-                <DiagramContextMenu />
-                <ZabContextMenu />
+                <div className="topbar">
+                    <Rozpoznania/>
+                    <OpcjeBtn/>
+                </div>
+                <CreateMouth/>
+                <DiagramContextMenu/>
+                <ZabContextMenu/>
+                <OpcjeDialog />
             </HotKeys>
         </div>
-
     );
-
 }
 
 const mapStateToProps = (state, ownProps) => ({
@@ -46,14 +43,9 @@ const mapStateToProps = (state, ownProps) => ({
     canRedo: state.Diagram.future.length > 0
 })
 
-
 const mapDispatchToProps = {
     undoRozp: ActionCreators.undo,
     redoRozp: ActionCreators.redo
 }
-
-
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(DiagramPage);
