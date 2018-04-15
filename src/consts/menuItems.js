@@ -1,6 +1,7 @@
 export const defaultMenu = {
     items: [
         { displayName: "Home", link: "/" },
+        { displayName: "Somed", link: "/Somed" },
         { displayName: "Dodaj busa", link: "/AddBus" },
         { displayName: "Rezerwuj miejsce", link: "/Reserve" },
         { displayName: "Diagram uzębienia", link: "/Diagram" },

@@ -4,7 +4,7 @@ import HomePage from './components/containers/HomePage';
 import AddBusPage from './components/containers/AddBusPage';
 import DiagramPage from './components/Diagram/DiagramPage';
 import WalidacjaFormularzy from './components/containers/WalidacjaFormularzy';
-import './styles/App.css';
+import Somed from './somed/components/Somed';
 
 class App extends Component {
   render() {
@@ -15,6 +15,7 @@ class App extends Component {
             <Route path='/AddBus' component={AddBusPage} />
             <Route path='/Diagram' component={DiagramPage} />
             <Route path='/FormVal' component={WalidacjaFormularzy} />
+            <Route path='/Somed' component={Somed} />
           </div>
       </Router>
     );

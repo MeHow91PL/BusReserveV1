@@ -12,7 +12,6 @@ import registerServiceWorker from './registerServiceWorker';
 const store = createStore(RootReducer, 
     applyMiddleware(historiaRozpoznan),
     composeWithDevTools(
-    
 ));
 
 ReactDOM.render(
