@@ -7,6 +7,8 @@ import {connect} from 'react-redux';
 import {ActionCreators} from 'redux-undo';
 import {HotKeys} from 'react-hotkeys';
 import {DiagramContextMenu, ZabContextMenu} from '../containers/ContextMenu';
+import { database } from '../../firebase';
+
 
 const keyMap = {
     'cofnijRozp': 'ctrl+z',
@@ -22,8 +24,11 @@ const DiagramPage = ({undoRozp, redoRozp, canUndo, canRedo}) => {
         'redoRozp': redo
     };
 
+    const test = database.ref('/test');
+    // const t = test.once('value').then((snapshot) => {snapshot.val()})
     return (
         <div>
+            {console.log(test, "##", database)}
             <HotKeys keyMap={keyMap} handlers={handlers}>
                 <div className="topbar">
                     <Rozpoznania/>
@@ -34,6 +39,8 @@ const DiagramPage = ({undoRozp, redoRozp, canUndo, canRedo}) => {
                 <ZabContextMenu/>
                 <OpcjeDialog />
             </HotKeys>
+            {
+            }
         </div>
     );
 }
