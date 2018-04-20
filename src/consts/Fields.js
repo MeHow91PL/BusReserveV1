@@ -10,11 +10,9 @@ export const renderField = ({
 }) => (
         <div>
             <label>{label}</label>
-            <div>
                 <input {...input} type={type} placeholder={`Podaj ${label}`} min={min} max={max} />
                 {touched && ((error && <span>{error}</span>) ||
                     (warning && <span>{warning}</span>))}
-            </div>
         </div>
     )
 

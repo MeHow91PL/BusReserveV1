@@ -1,33 +1,26 @@
 import {connect} from 'react-redux'
 import React from 'react'
 import {ukryjOpcje} from '../../actions/actions'
+import {reduxForm, Field} from 'redux-form'
 import {renderField} from '../../consts/Fields'
-import {Field, reduxForm} from 'redux-form'
 
-let OpcjeForm = () => {
-    return(
-        <div>
-            <form>
-                <Field 
-                    component={renderField} type="text" label="test" name="test1"
-                />
-            </form>
-        </div>
-    )
-}
+let OpcjeForm = ()=>(
+    <form> 
+        <Field  component={renderField} type="text" label="test" name="test" />
+    </form>
+)
 
-OpcjeForm = reduxForm({form:'OpcjeForm'})(OpcjeForm);
+OpcjeForm = reduxForm({form: 'opcjeForm'})(OpcjeForm);
 
 const OpcjeDialog = ({show, hideDialog}) => {
     console.log(show);
 
     return (
-        <div style={{display: show}}
-            className='modalDialog'
+        <div style={{display: show}} className='modalDialog'
             onClick={hideDialog}>
-            <div onClick={(e) => {e.stopPropagation();}}>
+             <div onClick={(e) => {e.stopPropagation();}}>
                 <OpcjeForm />
-            </div>
+             </div>
         </div>
     )
 }
